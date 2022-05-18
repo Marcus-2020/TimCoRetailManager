@@ -14,7 +14,7 @@ namespace TRMDataManager.Library.DataAccess
 
             var output = sql.LoadData<UserModel, dynamic>("dto.spUserLookup", p, "TRMData");
             
-            return output.SingleOrDefault();
+            return output.FirstOrDefault();
         }
     }
 }
