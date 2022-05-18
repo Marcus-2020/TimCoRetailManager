@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using TRMDesktopUI.Helpers;
+using TRMDesktopUI.Library.Api;
+using TRMDesktopUI.Library.Models;
 using TRMDesktopUI.ViewModels;
 
 namespace TRMDesktopUI
@@ -31,6 +33,7 @@ namespace TRMDesktopUI
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 .Singleton<IApiHelper, ApiHelper>();
 
             GetType().Assembly.GetTypes()

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Caliburn.Micro;
-using TRMDesktopUI.Helpers;
+using TRMDesktopUI.Library.Api;
 
 namespace TRMDesktopUI.ViewModels
 {
@@ -92,6 +92,8 @@ namespace TRMDesktopUI.ViewModels
                 await Task.Delay(1000);
                 if (ErrorMessage?.Length > 0) ErrorMessage = string.Empty;
                 var result = await _apiHelper.Authtenticate(UserName, Password);
+                
+                await _apiHelper.GetLoggedInUserData(result.Access_Token);
             }
             catch (Exception ex)
             {
