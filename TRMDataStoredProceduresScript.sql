@@ -1,10 +1,10 @@
-CREATE PROCEDURE  dto.[spUserlookup]
+CREATE PROCEDURE  dto.[spUserLookup]
     @Id nvarchar(128)
 AS
 BEGIN
     set nocount on;
 
-    select FirstName, LastName, EmailAddress
+    select Id, FirstName, LastName, EmailAddress, CreatedDate
     from dto.[User]
     where Id = @Id;
 END
