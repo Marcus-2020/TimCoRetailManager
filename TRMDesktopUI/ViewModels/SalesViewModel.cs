@@ -115,11 +115,6 @@ namespace TRMDesktopUI.ViewModels
 
         }
 
-        public void AddToCart()
-        {
-
-        }
-
         public bool CanCheckOut
         {
             get

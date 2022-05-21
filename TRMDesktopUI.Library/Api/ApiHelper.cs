@@ -60,15 +60,15 @@ namespace TRMDesktopUI.Library.Api
             
             using (HttpResponseMessage response = await _apiClient.GetAsync("api/user"))
             {
-                if (response.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
-                    result.Token = token;
-                    
-                    UpdateLoggedInUser(token, result);
+                    throw new Exception(response.ReasonPhrase);
                 }
                 
-                throw new Exception(response.ReasonPhrase);
+                var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
+                result.Token = token;
+
+                UpdateLoggedInUser(token, result);
             }
         }
 
