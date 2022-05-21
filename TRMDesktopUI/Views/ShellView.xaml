@@ -15,7 +15,8 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <ContentControl x:Name="ActiveItem" Margin="20 5 20 20" />
+            <ContentControl x:Name="ActiveItem" 
+                            Margin="20 5 20 20" />
         </Grid>
     </DockPanel>
 </Window>

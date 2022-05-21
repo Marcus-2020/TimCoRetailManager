@@ -29,6 +29,7 @@ CREATE TABLE dto.[Product] (
     ProductName NVARCHAR(100) NOT NULL,
     Description NVARCHAR(MAX) NOT NULL,
     RetailPrice MONEY NOT NULL,
+    QuantityInStock INTEGER NOT NULL DEFAULT 1,
     CreatedDate DATETIME2(7) NOT NULL DEFAULT  GETUTCDATE(),
     LastModified DATETIME2(7) NOT NULL DEFAULT  GETUTCDATE()
 );
@@ -40,3 +41,10 @@ CREATE TABLE dto.[Inventory] (
     PurchasePrice MONEY NOT NULL,
     PurchaseDate DATETIME2(7) NOT NULL DEFAULT  GETUTCDATE()
 );
+
+
+INSERT INTO dto.[Product] (Id, ProductName, Description, RetailPrice)
+    VALUES 
+        (1, 'Product one', 'Product one', 1.00), 
+        (2, 'Product two', 'Product two', 1.25), 
+        (3, 'Product three', 'Product three', 5.23)
