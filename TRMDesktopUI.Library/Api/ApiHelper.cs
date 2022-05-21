@@ -11,13 +11,15 @@ namespace TRMDesktopUI.Library.Api
     public class ApiHelper : IApiHelper
     {
         private readonly ILoggedInUserModel _loggedInUser;
-        private HttpClient _apiClient { get; set; }
+        private HttpClient _apiClient;
 
         public ApiHelper(ILoggedInUserModel loggedInUser)
         {
             _loggedInUser = loggedInUser;
             InitializeClient();
         }
+
+        public HttpClient ApiClient => _apiClient;
 
         private void InitializeClient()
         {
